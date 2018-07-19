@@ -1,4 +1,4 @@
-import AppState from '../common/interfaces/app-state'
+import AppState from './AppState'
 import * as DWAccountSelectors from '../common/selectors/drive-wealth-account'
 import { homeSelectors } from '../home'
 

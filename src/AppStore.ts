@@ -1,39 +1,22 @@
-import { AsyncStorage } from 'react-native'
-import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
-import { applyMiddleware, compose, createStore } from 'redux'
-import { autoRehydrate, persistStore } from 'redux-persist'
+import { applyMiddleware, createStore } from 'redux'
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import createSagaMiddleware from 'redux-saga'
-import rootReducer from './appReducer'
-import rootSaga from './appSaga'
+
+import rootReducer from './AppReducer'
+import rootSaga from './AppSaga'
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const sagaMiddleware = createSagaMiddleware()
-const navigationMiddleware = createReactNavigationReduxMiddleware(
-  'root',
-  (state: any) => state.nav
-)
-const middlewares = [navigationMiddleware, sagaMiddleware]
+const middlewareList = [sagaMiddleware]
 
-// TODO: find way enable this only when remove debug is true
-// for now just uncomment this during development
-// if (__DEV__) {
-//   middlewares.push(createLogger())
-// }
-
-const store = createStore(rootReducer,
-  compose(
-    autoRehydrate(),
-    applyMiddleware(...middlewares)
-  )
-)
-
+const store = createStore(persistedReducer, applyMiddleware(...middlewareList))
+persistStore(store)
 sagaMiddleware.run(rootSaga)
-persistStore(store, {
-  storage: AsyncStorage,
-  whitelist: [
-    'user',
-    'auth',
-    // 'nav',
-  ],
-})
 
 export default store
