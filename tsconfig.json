@@ -4,6 +4,7 @@
     "module": "es2015",
     "outDir": "build/dist",
     "sourceMap": true,
+    "skipLibCheck": true,
     "experimentalDecorators": true,
     "jsx": "react-native",
     "lib": ["dom", "es2015", "es2016"],
