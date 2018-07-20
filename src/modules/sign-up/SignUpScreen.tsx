@@ -16,7 +16,7 @@ class SignUpScreen extends Component<NavigationScreenProps<any>> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>SignUpScreen</Text>
+        <Text>SignUp Screen</Text>
         <TextInput placeholder='Username' style={styles.textInput}/>
         <Button title='Sign Up' onPress={this.handleSignUpPress}/>
         <Button title='Login' onPress={this.handleLoginPress}/>
