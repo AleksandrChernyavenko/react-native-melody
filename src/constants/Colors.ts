@@ -1,0 +1,21 @@
+const Colors = {
+  white: '#FFFFFF',
+  grey: '#F1F2F5',
+  darkGrey: '#9ba2a6',
+  lightBlack: '#1C2935',
+  black: '#000000',
+  darkPrimary: '#41369B',
+  primary: '#6055BA',
+  lightPrimary: '#8077C8',
+  red: '#d1051c',
+  green: '#2cc981',
+  darkGreen: '#15c16e',
+  grayBorder: '#c7cbcd',
+  blue: '#609ee5',
+  yellow: 'yellow',
+  activeTabColor: '#25323C',
+  inactiveTabColor: '#9ba2a6',
+  error: 'red',
+  orange: '#fec10a',
+}
+export default Colors

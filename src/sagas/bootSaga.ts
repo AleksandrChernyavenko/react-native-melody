@@ -1,7 +1,7 @@
 import { REHYDRATE } from 'redux-persist'
 import { delay } from 'redux-saga'
 import { call, take } from 'redux-saga/effects'
-import screens from '../constants/screens'
+import screens from '../constants/Screens'
 import NavigationService from '../services/NavigationService'
 
 const navigateToLogin = () => NavigationService.navigate(screens.Home)

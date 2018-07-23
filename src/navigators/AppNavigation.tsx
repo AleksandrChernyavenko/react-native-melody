@@ -1,5 +1,5 @@
 import { createSwitchNavigator } from 'react-navigation'
-import screens from '../constants/screens'
+import screens from '../constants/Screens'
 import { HomeScreen } from '../modules/home'
 import { LoginScreen } from '../modules/login'
 import { SignUpScreen } from '../modules/sign-up'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Text, View, TextInput, StyleSheet } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
-import screens from '../../constants/screens'
+import screens from '../../constants/Screens'
 
 class SignUpScreen extends Component<NavigationScreenProps<any>> {
 
