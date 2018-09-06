@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { NavigationScreenProp } from 'react-navigation'
-import CategoryListContainer from './containers/category-list'
+import GenresListContainer from './containers/genres-list'
 import ProfileContainer from './containers/profile'
 
 interface Props {
@@ -20,18 +20,18 @@ class HomeScreen extends Component<Props, State> {
     )
   }
 
-  renderCategories() {
+  renderGenres() {
     return (
-      <CategoryListContainer/>
+      <GenresListContainer/>
     )
   }
 
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{flex: 1}}>
         <Text>Home Screen</Text>
         {this.renderProfile()}
-        {this.renderCategories()}
+        {this.renderGenres()}
       </View>
     )
   }

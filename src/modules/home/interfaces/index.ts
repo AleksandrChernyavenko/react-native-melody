@@ -1,5 +1,5 @@
-import CategoriesState from './CategoriesState'
+import GenresState from './GenresState'
 
 export default interface HomeState {
-  categories: CategoriesState
+  genres: GenresState
 }

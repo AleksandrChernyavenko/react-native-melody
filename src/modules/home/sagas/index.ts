@@ -1,8 +1,8 @@
 import { all, fork } from 'redux-saga/effects'
-import categories from './categories'
+import genres from './genres'
 
-export default function* stockDetailSaga() {
+export default function* homeSaga() {
   yield all([
-    fork(categories),
+    fork(genres),
   ])
 }

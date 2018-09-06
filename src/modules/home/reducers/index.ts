@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 import HomeState from '../interfaces'
-import categories from './categories'
+import genres from './genres'
 
 export const homeReducer = combineReducers<HomeState>({
-  categories,
+  genres,
 })
 
 export default homeReducer

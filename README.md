@@ -5,6 +5,30 @@ Based on:
  - https://medium.com/@scbarrus/the-ducks-file-structure-for-redux-d63c41b7035c
 
 
+### Naming convention
+ `folder-name` - use lower case with dashes (as NPM modules do)
+ `fileName`/`ComponentName`
+     - use PascalCase for components, classes, Interfaces
+     - use camelCase in other cases
+     - `index.ts` should be in lower case
+     
+### Components
+
+```bash
+/component-name
+  index.tsx
+  styles.ts         <- optional
+  index.spec.tsx    <- optional
+  /sub-component    <- optional
+    index.tsx
+
+```
+Each component has it's own folder. Folder name should be the same as component name.
+In this folder should be `index.tsx` file with default export of this component.
+Each component may have nested folder with sub-components that can be used only by this component.
+You may separate styles to file `styles.ts`, but it's not required and depend on styles size.
+
+
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 

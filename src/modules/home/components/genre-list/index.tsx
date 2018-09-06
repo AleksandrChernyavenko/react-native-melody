@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
 import { ActivityIndicator, FlatList, Text } from 'react-native'
-import { CategoryItem } from '../../interfaces/CategoriesState'
+import { GenreItem } from '../../interfaces/GenresState'
+import GenreListItem from './genre-list-item'
 
 interface Props {
   loading: boolean,
   error: string,
-  items: CategoryItem[],
+  items: GenreItem[],
 }
 
-class CategoryList extends Component<Props> {
+class GenreList extends Component<Props> {
 
-  renderItem = ({item}: { item: CategoryItem }) => {
+  renderItem = ({item}: { item: GenreItem }) => {
     return (
-      <Text>{item.name}</Text>
+      <GenreListItem genre={item}/>
     )
   }
 
-  keyExtractor = (item: CategoryItem) => item.id
+  keyExtractor = (item: GenreItem) => item.id
 
   renderLoading() {
     return (
@@ -50,4 +51,4 @@ class CategoryList extends Component<Props> {
 
 }
 
-export default CategoryList
+export default GenreList

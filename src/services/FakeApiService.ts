@@ -1,8 +1,6 @@
 export const get = async () => {
   await delay()
-  console.log('delay DONE');
-  const success = getRandomArbitrary(0, 1) > 0.2
-  console.log('success ?',success);
+  const success = getRandomArbitrary(0, 1) > 0.1
   if (!success) {
     return {
       error: true,
@@ -24,6 +22,10 @@ const delay = () => {
   })
 }
 
-const getRandomArbitrary = (min: number, max: number) => {
+export const getRandomArbitrary = (min: number, max: number): number => {
   return Math.random() * (max - min) + min
+}
+
+export const getRandomInt = (min: number, max: number): number => {
+  return Math.trunc(getRandomArbitrary(min, max))
 }
