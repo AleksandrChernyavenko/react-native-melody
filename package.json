@@ -8,7 +8,6 @@
     "eject": "react-native-scripts-ts eject",
     "android": "react-native-scripts-ts android",
     "ios": "react-native-scripts-ts ios",
-    "dts": "./scripts/generate_cross_platform_types",
     "typecheck": "node_modules/.bin/tsc --pretty",
     "typewatch": "node_modules/.bin/tsc --pretty --watch",
     "pretest": "npm run typecheck && npm run lint",
@@ -45,7 +44,7 @@
     "tslib": "^1.9.3",
     "tslint": "5.11.0",
     "tslint-react": "3.6.0",
-    "typescript": "2.9.2"
+    "typescript": "^3.0.3"
   },
   "jest": {
     "globals": {
