@@ -1,4 +1,5 @@
 const screens = {
+  Game: 'Game',
   Home: 'Home',
   Login: 'Login',
   SignUp: 'SignUp',

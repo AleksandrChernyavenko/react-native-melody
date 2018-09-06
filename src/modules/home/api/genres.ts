@@ -70,7 +70,6 @@ export const subscribe = (onChange: (items: GenreItem[]) => void): void => {
   }
 
   subscription = setInterval(() => {
-    console.log('subscribe')
     onChange(getFakeGenres())
   }, 500)
 
