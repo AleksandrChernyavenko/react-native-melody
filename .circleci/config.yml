@@ -40,7 +40,8 @@ jobs:
           name: Run Sonar Scanner
           command: |
             cd ~/node
-            ./../sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.pullrequest.base=master -Dsonar.pullrequest.branch=${CIRCLE_BRANCH} -Dsonar.pullrequest.key=${CIRCLE_BRANCH}
+            PR_NUMBER=$(sed -n -e 's/^.*pull\///p' <<< $CIRCLE_PULL_REQUEST)
+            ./../sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.pullrequest.base=master -Dsonar.pullrequest.branch=${CIRCLE_BRANCH} -Dsonar.pullrequest.key=${PR_NUMBER}
 workflows:
   version: 2
   test:
