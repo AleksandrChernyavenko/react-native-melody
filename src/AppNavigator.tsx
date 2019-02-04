@@ -11,6 +11,7 @@ export default class AppNavigator extends Component {
   }
 
   render() {
+    x = od;
     return (
       <Provider store={AppStore}>
         <AppNavigation ref={this.captureRef}/>
