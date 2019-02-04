@@ -30,6 +30,63 @@ const genres = (state: PortfolioState = initState, action: GenresAction): Portfo
         loading: false,
         error: action.payload.message || 'Loading error',
       }
+    case GenresActionTypes.FETCH_GENRES:
+      return {
+        ...state,
+        loading: true,
+        error: '',
+      }
+    case GenresActionTypes.FETCH_GENRES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        items: action.payload,
+        error: '',
+      }
+    case GenresActionTypes.FETCH_GENRES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.message || 'Loading error',
+      }
+    case GenresActionTypes.FETCH_GENRES:
+      return {
+        ...state,
+        loading: true,
+        error: '',
+      }
+    case GenresActionTypes.FETCH_GENRES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        items: action.payload,
+        error: '',
+      }
+    case GenresActionTypes.FETCH_GENRES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.message || 'Loading error',
+      }
+    case GenresActionTypes.FETCH_GENRES:
+      return {
+        ...state,
+        loading: true,
+        error: '',
+      }
+    case GenresActionTypes.FETCH_GENRES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        items: action.payload,
+        error: '',
+      }
+    case GenresActionTypes.FETCH_GENRES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.message || 'Loading error',
+      }
     default:
       return state
   }
