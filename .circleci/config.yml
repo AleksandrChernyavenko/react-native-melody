@@ -1,0 +1,51 @@
+version: 2.0
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:latest
+    working_directory: ~/node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - dependencies-cache-v1-{{ arch }}-{{ .Branch }}
+            - dependencies-cache-v1
+      - run:
+          name: Install dependencies
+          command: npm i
+      - save_cache:
+          key: dependencies-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - node_modules
+  quality:
+    docker:
+      - image: circleci/openjdk:latest
+    working_directory: ~/node
+    steps:
+      - checkout
+      - run:
+          name: Install NodeJS
+          command: curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && sudo apt-get install -y nodejs
+      - run:
+          name: Install Sonar Scanner
+          command: cd && sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip && sudo unzip sonar-scanner-cli-3.3.0.1492-linux.zip && sudo rm sonar-scanner-cli-3.3.0.1492-linux.zip
+      - restore_cache:
+          keys:
+            - dependencies-cache-v1-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+            - dependencies-cache-v1-{{ arch }}-{{ .Branch }}
+            - dependencies-cache-v1
+      - run:
+          name: Run Sonar Scanner
+          command: |
+            cd ~/node
+            ./../sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
+  quality:
+    jobs:
+      - quality
