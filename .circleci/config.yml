@@ -40,7 +40,7 @@ jobs:
           name: Run Sonar Scanner
           command: |
             cd ~/node
-            ./../sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
+            ./../sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner -Dsonar.pullrequest.base=master -Dsonar.pullrequest.branch=${CIRCLE_BRANCH} -Dsonar.pullrequest.key=${CIRCLE_BRANCH}
 workflows:
   version: 2
   test:
