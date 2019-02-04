@@ -7,7 +7,6 @@ import NavigationService from './services/NavigationService'
 export default class AppNavigator extends Component {
 
   captureRef = (navigatorRef: any) => {
-    console.log('CI')
     NavigationService.setTopLevelNavigator(navigatorRef)
   }
 
